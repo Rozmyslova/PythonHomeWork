@@ -26,6 +26,6 @@ coordinate_x_B = correct_enter()
 print(f"Coordinate X of point B = {coordinate_x_B}")
 coordinate_y_B = correct_enter()
 print(f"Coordinate Y of point B = {coordinate_y_B}")
-length_AB = ((coordinate_x_B - coordinate_x_A)**2 + (coordinate_y_B - coordinate_y_A)**2)**(0.5)
+length_AB = ((coordinate_x_B - coordinate_x_A) ** 2 + (coordinate_y_B - coordinate_y_A) ** 2) ** (0.5)
 result_length_AB = str(round(length_AB, 3))[:-1]
 print(f"Length between 2 points is {result_length_AB}")
