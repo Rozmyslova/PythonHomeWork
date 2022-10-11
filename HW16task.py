@@ -10,12 +10,7 @@ from correct_enter_float import correct_enter_float
 
 d = correct_enter_float()
 d = str(d)
-l = len(d)
-print(f"l = {l}")
-a = d.find('.')
-print(f"a = {a}")
 d = int(abs(d.find('.') - len(d)))
-print(d)
 divider = 1
 row_sum = 0
 for i in range(1000000):

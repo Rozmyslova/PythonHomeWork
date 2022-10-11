@@ -6,33 +6,36 @@
 import random
 import itertools
 from correct_enter import correct_enter
+from polynom_create import polynom_coef
 from polynom_create import polynom_create
 
-
-"""def sum_polynom(pol1, pol2):
-    add_pol = [0] * (max)
-    min_length = min(len(pol1), len(pol2))
-    for i in range(min_length):
-        if pol1[i][1] == pol2[i][1]:
-            pol = pol1[i][0] + pol2[i][0]
-            if pol != 0:
-                sum_pol.append(pol, pol1[i][1])
-        if pol1[i][1] != pol2[i][1]:
-            sum_pol.append(pol2[i])
-            sum_pol.append(pol1[i])
-    return sum_pol"""
-
-
 polynom_degree1 = correct_enter()
-polynom1 = polynom_create(polynom_degree1)
+polynom_coefficient1 = polynom_coef(polynom_degree1)
+polynom1 = polynom_create(polynom_degree1, polynom_coefficient1)
 print(polynom1)
-"""with open('Pln1_20task.txt', 'w') as pln1:
-    pln1.write(polynom1)"""
+with open('Pln1_20task.txt', 'w') as pln1:
+    pln1.write(polynom1)
 
 polynom_degree2 = correct_enter()
-polynom2 = polynom_create(polynom_degree2)
+polynom_coefficient2 = polynom_coef(polynom_degree2)
+polynom2 = polynom_create(polynom_degree2, polynom_coefficient2)
 print(polynom2)
-"""with open('Pln2_20task.txt', 'w') as pln2:
-    pln2.write(polynom2)"""
-#polynom_res = sum_polynom(polynom1, polynom2)
+with open('Pln2_20task.txt', 'w') as pln2:
+    pln2.write(polynom2)
 
+polynom1_rev = list(reversed(polynom_coefficient1))
+polynom2_rev = list(reversed(polynom_coefficient2))
+polynom1_rev.extend([0, ] * (len(polynom2_rev) - len(polynom1_rev)))
+polynom2_rev.extend([0, ] * (len(polynom1_rev) - len(polynom2_rev)))
+polynom_coef_rev = list(map(sum, zip(polynom1_rev, polynom2_rev)))
+polynom_coef = list(reversed(polynom_coef_rev))
+
+if polynom_degree1 > polynom_degree2:
+    polynom_degree = polynom_degree1
+else:
+    polynom_degree = polynom_degree2
+
+polynom_res = polynom_create(polynom_degree, polynom_coef)
+print(polynom_res)
+with open('Pln_res_20task.txt', 'w') as pln_res:
+    pln_res.write(polynom_res)
