@@ -9,7 +9,6 @@ from correct_enter_float import correct_enter_float
 
 
 d = correct_enter_float()
-d = str(d)
 d = int(abs(d.find('.') - len(d)))
 divider = 1
 row_sum = 0
