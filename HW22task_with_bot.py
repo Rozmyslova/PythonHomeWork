@@ -27,17 +27,14 @@ while candy > 28:
         player_choice = correct_enter()
         candy -= player_choice
         print(f"{candy} candies left")
-        print(turn)
         turn = 2
-        print(turn)
     else:
         bot_choice = candy % 29
         if bot_choice == 0:
-            bot_choice = 29
+            bot_choice = 28
         candy -= bot_choice
         print(f"Bot takes {bot_choice} candies and {candy} candies on the table")
         turn = 1
-        print(turn)
     if candy <= 28:
         if turn == 1:
             print(f"{candy} candies left, and Player win - he takes all the candy!")
