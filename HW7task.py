@@ -14,10 +14,19 @@ def correct_enter():
             return int(num)
 
 
-number = correct_enter()
+"""number = correct_enter()
 array = []
 product = 1
 for i in range(number):
     product *= (i + 1)
     i = array.append(product)
+print(array)"""
+
+
+number = correct_enter()
+array = []
+product = 1
+for i, _ in enumerate(range(number), 1):
+    product *= i
+    array.append(product)
 print(array)
